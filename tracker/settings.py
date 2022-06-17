@@ -31,6 +31,8 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+LOGIN_REDIRECT_URL = "home"
+
 
 INSTALLED_APPS = [
     "tasks.apps.TasksConfig",
