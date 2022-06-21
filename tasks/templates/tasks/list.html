@@ -22,7 +22,13 @@
                                 {% if task.is_completed %}
                                     <td colspan='2'>Done</td>
                                 {% else %}
-                                    <td colspan='2'></td>
+                                    <td>
+                                        <form method="post" action="{% url 'complete_task' task.id %}">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="is_completed" value="True">
+                                            <button>Complete</button>
+                                        </form>
+                                    </td>
                                 {% endif %}
                             </tr>
                         {% endfor %}
