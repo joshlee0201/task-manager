@@ -12,26 +12,26 @@
                 <a href="{% url 'create_task' %}">Create a new task</a>
             </p>
             {% if project.tasks.all %}
-            <table>
-                <thead>
-                    <tr>
-                        <th colspan='2'>Name</th>
-                        <th colspan='2'>Assignee</th>
-                        <th colspan='2'>Start date</th>
-                        <th colspan='2'>Due date</th>
-                        <th colspan='2'>Is completed</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for task in project.tasks.all %}
-                        <td colspan='2'>{{ task }}</td>
-                        <td colspan='2'>{{ task.assignee }}</td>
-                        <td colspan='2'>{{ task.start_date }}</td>
-                        <td colspan='2'>{{ task.due_date }}</td>
-                        <td colspan='2'>{{ task.is_completed | yesno }}</td>
-                    {% endfor%}
-                </tbody>
-            </table>
+                <table>
+                    <thead>
+                        <tr>
+                            <th colspan='2'>Name</th>
+                            <th colspan='2'>Assignee</th>
+                            <th colspan='2'>Start date</th>
+                            <th colspan='2'>Due date</th>
+                            <th colspan='2'>Is completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for task in project.tasks.all %}
+                            <td colspan='2'>{{ task }}</td>
+                            <td colspan='2'>{{ task.assignee }}</td>
+                            <td colspan='2'>{{ task.start_date }}</td>
+                            <td colspan='2'>{{ task.due_date }}</td>
+                            <td colspan='2'>{{ task.is_completed | yesno }}</td>
+                        {% endfor%}
+                    </tbody>
+                </table>
             {% else %}
                 <p>This project has no tasks</p>
             {% endif %}
