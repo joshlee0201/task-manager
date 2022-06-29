@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -25,7 +26,5 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = "projects/create.html"
     fields = ["name", "description", "members"]
 
-    def form_valid(self, form):
-        project = form.save(commit=False)
-        project.save()
-        return redirect("show_project", pk=project.id)
+    def get_success_url(self):
+        return reverse("show_project", pk=self.object.pk)
