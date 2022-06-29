@@ -16,10 +16,12 @@
                     </thead>
                     <tbody>
                         {% for project in project_list %}
-                            <td colspan='2'>
-                                <a href="{% url 'show_project' project.pk %}">{{ project }}</a>
-                            </td>
-                            <td colspan='2'>{{ project.tasks.all | length }}</td>
+                            <tr>
+                                <td colspan='2'>
+                                    <a href="{% url 'show_project' project.pk %}">{{ project }}</a>
+                                </td>
+                                <td colspan='2'>{{ project.tasks.all | length }}</td>
+                            </tr>
                         {% endfor %}
                     </tbody>
                 </table>
