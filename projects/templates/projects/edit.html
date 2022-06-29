@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    <main>
+        <div class='project-form'>
+            <h1>Create a new project</h1>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button>Update</button>
+            </form>
+            <form method="none" action="{% url 'project_delete' project.id %}">
+                {% csrf_token %}
+                <button>Delete</button>
+            </form>
+        </div>
+    </main>
+{% endblock content %}

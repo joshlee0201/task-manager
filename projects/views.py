@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.views.generic.edit import CreateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -28,3 +28,18 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         return reverse("show_project", kwargs={"pk": self.object.pk})
+
+
+class ProjectUpdateView(LoginRequiredMixin, UpdateView):
+    model = Project
+    template_name = "projects/edit.html"
+    fields = ["name", "description", "members"]
+
+    def get_success_url(self):
+        return reverse("show_project", kwargs={"pk": self.object.pk})
+
+
+class ProjectDeleteView(LoginRequiredMixin, DeleteView):
+    model = Project
+    template_name = "projects/delete.html"
+    success_url = reverse_lazy("list_projects")

@@ -4,12 +4,23 @@
     <main>
         <div class='project-detail'>
             <h1>{{ project }}</h1>
-            <p>
-                {{ project.description|markdownify }}
-            </p>
+            <p>{{ project.description|markdownify }}</p>
+            <div>
+                <form method="none" action="{% url 'project_edit' project.id %}">
+                    {% csrf_token %}
+                    <button>Edit</button>
+                </form>
+                <form method="none" action="{% url 'project_delete' project.id %}">
+                    {% csrf_token %}
+                    <button>Delete</button>
+                </form>
+            </div>
             <h2>Tasks</h2>
             <p>
-                <a href="{% url 'create_task' %}">Create a new task</a>
+                <form method="none" action="{% url 'create_task' %}">
+                    {% csrf_token %}
+                    <button>Create a new task</button>
+                </form>
             </p>
             {% if project.tasks.all %}
                 <table>
@@ -29,7 +40,7 @@
                             <td colspan='2'>{{ task.start_date }}</td>
                             <td colspan='2'>{{ task.due_date }}</td>
                             <td colspan='2'>{{ task.is_completed | yesno }}</td>
-                        {% endfor%}
+                        {% endfor %}
                     </tbody>
                 </table>
             {% else %}
