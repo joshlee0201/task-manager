@@ -42,6 +42,23 @@ header nav ul li a {
   text-decoration: none;
 }
 
+/* removing highlight on hyperlinks */
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  text-decoration: underline;
+}
+
 /* Make the input tags look nicer */
 input {
   height: 1.5em;
