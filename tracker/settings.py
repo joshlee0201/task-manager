@@ -28,7 +28,7 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["manage-tasks-project.herokuapp.com"]
+ALLOWED_HOSTS = ["localhost", "manage-tasks-project.herokuapp.com"]
 
 
 # Application definition
@@ -91,8 +91,6 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-prod_db = dj_database_url.config(conn_max_age=500)
-DATABASES["default"].update(prod_db)
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES["default"].update(db_from_env)
 
@@ -151,3 +149,6 @@ STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, "projects/static"),)
 
 #  Add configuration for static files storage using whitenoise
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
