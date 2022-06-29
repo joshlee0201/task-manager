@@ -27,4 +27,4 @@ class ProjectCreateView(LoginRequiredMixin, CreateView):
     fields = ["name", "description", "members"]
 
     def get_success_url(self):
-        return reverse("show_project", pk=self.object.pk)
+        return reverse("show_project", kwargs={"pk": self.object.pk})
