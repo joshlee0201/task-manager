@@ -87,8 +87,9 @@ WSGI_APPLICATION = "tracker.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        dj_database_url.config(
+            default="postgres://bhbepzzvxhwkro:ab962d8b98f8d54a97a9d6c43da7e99a72152bdcdc7e80aee81d279843586bbc@ec2-44-197-128-108.compute-1.amazonaws.com:5432/d2d2tt1o0jceq3"
+        )
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=500)
