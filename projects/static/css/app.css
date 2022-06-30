@@ -15,7 +15,10 @@ select {
 /* Set the background color of all pages */
 html,
 body {
-  background-color: powderblue;
+  height: 100vh;
+  background-image: linear-gradient(to bottom, powderblue, skyblue);
+  width: 100vw;
+
 }
 
 /* Set the style of the navigation list */
@@ -86,7 +89,11 @@ textarea {
 /* Set the width on all tables */
 table {
   width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
 }
+
+
 
 /* Set the size of the help text in forms */
 .helptext {
@@ -154,7 +161,7 @@ h1,
 }
 
 /* Make the buttons a little larger */
-button,
+.project-list button,
 .task-form button,
 .my-tasks-list button,
 .login-form button,
@@ -163,6 +170,17 @@ button,
   padding: 0.25em 1em;
   background-color: white;
   border-color: skyblue;
+}
+
+.project-detail button {
+  display: inline-block;
+  padding: 0.25em 1em;
+  background-color: white;
+  border-color: skyblue;
+}
+
+.project-detail-header form {
+  display: inline-block;
 }
 
 /* Add a nice box around the lists and details */
@@ -185,14 +203,15 @@ button,
 .project-detail th,
 .project-detail td {
   color: navy;
-  padding: .5em;
+  padding: 1em;
 }
 
 /* Add a bottom border to the table header tags */
 .my-tasks-list thead tr th,
 .project-list thead tr th,
 .project-detail thead tr th {
-  border-bottom: 2px solid #DEDEDE;
+  background-color: #a4dded;
+  border: 2px solid navy;
 }
 
 /* Center align the text on specific table header cells */
@@ -211,8 +230,8 @@ button,
 .project-detail tbody td:nth-child(6),
 
 /* Add horizontal rules to all rows except the last */
-.my-tasks-list tbody :not(tr:last-child) td,
-.project-list tbody :not(tr:last-child) td,
-.project-detail tbody :not(tr:last-child) td {
-  border-bottom: 1px solid #DEDEDE;
+.my-tasks-list tbody td,
+.project-list tbody td,
+.project-detail tbody td {
+  border: 1px solid navy;
 }
