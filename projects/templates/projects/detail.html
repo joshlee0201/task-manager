@@ -39,6 +39,7 @@
                             <th colspan='2'>Start date</th>
                             <th colspan='2'>Due date</th>
                             <th colspan='2'>Is completed</th>
+                            <th colspan='2'>Delete?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -49,6 +50,12 @@
                                 <td colspan='2'>{{ task.start_date }}</td>
                                 <td colspan='2'>{{ task.due_date }}</td>
                                 <td colspan='2'>{{ task.is_completed | yesno }}</td>
+                                <td colspan='2'>
+                                    <form method="post" action="{% url 'delete_task' task.id %}">
+                                        {% csrf_token %}
+                                        <button>Delete</button>
+                                    </form>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>

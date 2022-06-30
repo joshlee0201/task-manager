@@ -218,6 +218,7 @@ h1,
 .my-tasks-list tbody td:nth-child(2),
 .my-tasks-list tbody td:nth-child(3),
 .my-tasks-list tbody td:nth-child(4),
+.my-tasks-list tbody td:nth-child(5),
 .project-list tbody tr td,
 .project-detail tbody td:nth-child(2),
 .project-detail tbody td:nth-child(3),
@@ -225,6 +226,8 @@ h1,
 .project-detail tbody td:nth-child(5) {
   text-align: center;
 }
+
+.project-detail tbody td:nth-child(6),
 
 /* Add horizontal rules to all rows except the last */
 .my-tasks-list tbody td,
