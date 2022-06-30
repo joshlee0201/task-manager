@@ -15,7 +15,6 @@
                         <tr>
                             <th colspan='2'>Name</th>
                             <th colspan='2'>Number of tasks</th>
-                            <th colspan='2'>Members</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -25,7 +24,6 @@
                                     <a href="{% url 'show_project' project.pk %}">{{ project }}</a>
                                 </td>
                                 <td colspan='2'>{{ project.tasks.all | length }}</td>
-                                <td colspan='2'>{{ project.members.all }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
