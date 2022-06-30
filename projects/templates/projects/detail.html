@@ -14,6 +14,12 @@
                     {% csrf_token %}
                     <button>Delete</button>
                 </form>
+                <p>Project Members:</p>
+                <ul>
+                    {% for member in project.members.all %}
+                        <li>{{ member }}</li>
+                    {% endfor %}
+                </ul>
             </div>
             <h2>Tasks</h2>
             <p>
@@ -35,11 +41,13 @@
                     </thead>
                     <tbody>
                         {% for task in project.tasks.all %}
-                            <td colspan='2'>{{ task }}</td>
-                            <td colspan='2'>{{ task.assignee }}</td>
-                            <td colspan='2'>{{ task.start_date }}</td>
-                            <td colspan='2'>{{ task.due_date }}</td>
-                            <td colspan='2'>{{ task.is_completed | yesno }}</td>
+                            <tr>
+                                <td colspan='2'>{{ task }}</td>
+                                <td colspan='2'>{{ task.assignee }}</td>
+                                <td colspan='2'>{{ task.start_date }}</td>
+                                <td colspan='2'>{{ task.due_date }}</td>
+                                <td colspan='2'>{{ task.is_completed | yesno }}</td>
+                            </tr>
                         {% endfor %}
                     </tbody>
                 </table>

@@ -117,6 +117,7 @@ table {
 }
 
 /* Make all of the headers the same */
+h1,
 .task-form h1,
 .login-form h1,
 .signup-form h1,
@@ -153,6 +154,7 @@ table {
 }
 
 /* Make the buttons a little larger */
+button,
 .task-form button,
 .my-tasks-list button,
 .login-form button,
