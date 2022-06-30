@@ -14,6 +14,12 @@
                     {% csrf_token %}
                     <button>Delete</button>
                 </form>
+                <p>Project Members:</p>
+                <ul>
+                    {% for member in project.members.all %}
+                        <li>{{ member }}</li>
+                    {% endfor %}
+                </ul>
             </div>
             <h2>Tasks</h2>
             <p>
